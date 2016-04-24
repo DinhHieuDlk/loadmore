@@ -1,0 +1,24 @@
+
+                <h1 class="page-header">
+                    Page Heading
+                    <small>Secondary Text</small>
+                </h1>
+                <div class='posts'>
+
+<%=render @posts%>
+                <!-- First Blog Post -->
+          
+                </div>
+
+                
+                <ul class="pager">
+                    <li class="next">
+                    <div class="loadmore">
+                        <button><%=link_to "Load More Post",posts_path(:page => @posts.next_page), :remote=>true %></button>
+                        </div>
+                    </li>
+               
+                </ul>
+             
+
+

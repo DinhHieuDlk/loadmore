@@ -1,0 +1,19 @@
+
+
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <%= form_for([@post, @post.comments.build]) do |f| %>
+                    <form role="form">
+                        <div class="form-group">
+                          <div class="field">
+                          <%= f.label :email %><br />
+                          <%= f.email_field :email %>
+                          </div>
+                             <%= f.label :body %>
+                              <%= f.text_area :body, :class=>"form-control" %>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                  <% end %>
+                </div>
+                
