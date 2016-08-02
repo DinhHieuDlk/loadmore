@@ -1,25 +1,17 @@
-
-<h1 class="page-header">
-    Page Heading
-    <small>Secondary Text</small>
-</h1>
-<div class='posts'>
-    <%=render @posts%>
-</div>    
-<ul class="pager">
-    <li class="next">
-        <%=link_to "Load More Post",posts_path, class:"loadmore"%>
-    </li>
-</ul>
-             
-<script>
-    // when the page is ready for manipulation
+// when the page is ready for manipulation
 $(document).ready(function () {
     // when the load more link is clicked
-    $('.loadmore').click(function (e) {
+    $('a.load-more').click(function (e) {
 
         // prevent the default click action
         e.preventDefault();
+
+        // hide load more link
+        $('.load-more').hide();
+
+        // show loading gif
+        $('.loading-gif').show();
+
         // get the last id and save it in a variable 'last-id'
         var last_id = $('.record').last().attr('data-id');
 
@@ -36,8 +28,15 @@ $(document).ready(function () {
             },
             // the response will be a script
             dataType: "script",
+
+            // upon success 
+            success: function () {
+                // hide the loading gif
+                $('.loading-gif').hide();
+                // show our load more link
+                $('.load-more').show();
+            }
         });
 
     });
 });
-</script>

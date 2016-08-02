@@ -26,7 +26,7 @@ development:
   database: blog
   host: localhost
   username: postgres
-  password: toor
+  password: root
 
 
   # The specified database role being used to connect to postgres.
